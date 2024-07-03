@@ -8,6 +8,8 @@ def load_guests():
             guests = [line.strip() for line in file.readlines()]
         return guests
     except FileNotFoundError:
+        with open(guests_file, 'w') as file: #new guest file if guests.txt doesn't exist
+            file.write("")
         return []
 
 # Function to save guests to file
@@ -18,14 +20,27 @@ def save_guests(guests):
 
 # Function to add guest
 def add_guest():
+    global guests
     guest = input("Enter a new guest: ")
     guests.append(guest)
-    save_guests(guests)
     print("Guest added successfully!")
 
-# Function to delete guest
+
+# View guest function
+def view_guests():
+    global guests  #modifying the global guests list
+    guests = load_guests() #load guest from files 
+    if len(guests) == 0:
+        print("No guests on the guest list.")
+    else:
+        print("List of guests:")
+        for i, guest in enumerate(guests):
+            print(f'{i+1}. {guest}')
+
+
+# Function to delete guest from list
 def delete_guest():
-    global guests  # This is to make sure we're modifying the global guests list
+    global guests  
     if len(guests) == 0:
         print("No guests to delete.")
     else:
@@ -39,7 +54,6 @@ def delete_guest():
                 choice = int(choice)
                 if 0 < choice <= len(guests):
                     del guests[choice-1]
-                    save_guests(guests)  # Update the file after deletion
                     print("Guest deleted successfully.")
                     break
                 else:
@@ -52,22 +66,27 @@ def delete_guest():
             if back_choice == 'y':
                 break
 
-# View guest function
-def view_guests():
-    global guests  
-    guests = load_guests()  
-    if len(guests) == 0:
-        print("No guests on the guest list.")
+# Function to handle saving changes before exiting
+def save_changes_prompt():
+    global guests
+    save_decision = input("There are unsaved changes. Would you like to save them? (y/n): ").lower()
+    if save_decision == 'y':
+        save_guests(guests)
+        print("Changes saved successfully.")
     else:
-        print("List of guests:")
-        for i, guest in enumerate(guests):
-            print(f'{i+1}. {guest}')
+        print("Changes not saved.")
 
 
+#Main function to run the application
 def main():
     global guests  
-    guests = load_guests()  
+    guests = load_guests() 
+    changes_saved = True
+
     while True:
+        if not changes_saved:
+            save_changes_prompt() #Prompt to save changes if not already saved
+
         print("\n===== Event Planner Application =====")
         print("============ Guest List =============")
         print("1. Add New Guest")
@@ -80,13 +99,17 @@ def main():
             choice = int(input("Enter the number of your choice: "))
             if choice == 1:
                 add_guest()
+                changes_saved = False
             elif choice == 2:
                 view_guests()
             elif choice == 3:
                 delete_guest()
+                changes_saved = False
             elif choice == 4:
                 continue
             elif choice == 5:
+                if not changes_saved:
+                    save_changes_prompt()
                 print("Thank you for using the Event Planner Application.")
                 save_guests(guests)  # Save guests to file before quitting
                 break
