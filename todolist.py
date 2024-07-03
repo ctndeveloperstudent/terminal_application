@@ -17,18 +17,25 @@ def delete_task():
     if len(tasks) == 0:
         print("No tasks to delete.")
     else:
-        print('Tasks:')
-        for i, task in enumerate(tasks):
-            print(f'{i+1}. {task}')
-        try:
-            choice = int(input("Enter the task number to delete: "))
-            if 0 < choice <= len(tasks):
-                del tasks[choice-1]
-                print("Task deleted successfully.")
-            else:
-                print("Invalid task number.")
-        except ValueError:
-            print("Please enter a valid number.")
+        while True:
+            print('Tasks:')
+            for i, task in enumerate(tasks):
+                print(f'{i+1}. {task}')
+            try:
+                choice = int(input("Enter the task number to delete: "))
+                if 0 < choice <= len(tasks):
+                    del tasks[choice-1]
+                    print("Task deleted successfully.")
+                    break
+                else:
+                    print("Invalid task number. Please try again.")
+            except ValueError:
+                print("Please enter a valid number.")
+            
+            # Option to break out of the loop and go back to the main menu
+            back_choice = input("Do you want to go back to the main menu? (y/n): ").lower()
+            if back_choice == 'y':
+                break
 
 def main():
     while True:
@@ -37,8 +44,7 @@ def main():
         print("1. Add Task")
         print("2. View Tasks")
         print("3. Delete Task")
-        print("4. Back to Main Menu")
-        print("5. Quit")
+        print("4. Quit")
 
         try:
             choice = int(input("Enter the number of your choice: "))
@@ -49,8 +55,6 @@ def main():
             elif choice == 3:
                 delete_task()
             elif choice == 4:
-                continue
-            elif choice == 5:
                 print("Thank you for using the Event Planner Application.")
                 break
             else:
@@ -59,3 +63,4 @@ def main():
             print("Please enter a valid number.")
 
 main()
+

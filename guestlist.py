@@ -17,18 +17,27 @@ def delete_guest():
     if len(guests) == 0:
         print("No guests to delete.")
     else:
-        print('Guests:')
-        for i, guest in enumerate(guests):
-            print(f'{i+1}. {guest}')
-        try:
-            choice = int(input("Enter the guest number to delete: "))
-            if 0 < choice <= len(guests):
-                del guests[choice-1]
-                print("Guest deleted successfully.")
-            else:
-                print("Invalid guest number.")
-        except ValueError:
-            print("Please enter a valid number.")
+        while True:
+            print('Guests:')
+            for i, guest in enumerate(guests):
+                print(f'{i+1}. {guest}')
+            choice = input("Enter the guest number to delete: ")
+            
+            try:
+                choice = int(choice)
+                if 0 < choice <= len(guests):
+                    del guests[choice-1]
+                    print("Guest deleted successfully.")
+                    break
+                else:
+                    print("Invalid guest number. Please try again.")
+            except ValueError:
+                print("Please enter a valid number.")
+            
+            # Option to break out of the loop and go back to the main menu
+            back_choice = input("Do you want to go back to the main menu? (y/n): ").lower()
+            if back_choice == 'y':
+                break
 
 def main():
     while True:
