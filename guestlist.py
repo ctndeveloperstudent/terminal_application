@@ -32,7 +32,7 @@ def main():
 
     while True:
         print("\n===== Event Planner Application =====")
-        print("\n============ Guest List =============")
+        print("============ Guest List =============")
         print("1.Add New Guest")
         print("2.View Guest List")
         print("3.Delete Guest")
@@ -40,15 +40,15 @@ def main():
         print("5.Quit")
 
         choice = int(input("Enter the number of your choice:"))
-        if choice == 1 :
+        if choice == 1:
             add_guest()
-        elif choice == 2 :
+        elif choice == 2:
             view_guests()
-        elif choice == 3 :
+        elif choice == 3:
             delete_guests()
-        elif choice == 4 :
+        elif choice == 4:
             pass
-        elif choice == 5 :
+        elif choice == 5:
             print("Thank you for using the Event Planner Application.")
             break
         else:
