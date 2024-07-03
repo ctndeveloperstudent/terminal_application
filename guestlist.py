@@ -110,7 +110,7 @@ def main():
         except ValueError:
             print("Please enter a valid number.")
 
-    # Save changes automatically before exiting
+    # Save changes before exiting
     save_guests()
 
 if __name__ == "__main__":
