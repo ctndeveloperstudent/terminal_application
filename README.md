@@ -1,9 +1,18 @@
-# Event Planning Application
+# Event Planning Terminal Application
 
 ## Features
+- Main Menu
 - Guest List Tracker
 - To Do List 
 - Expense Tracker
+
+## Main App
+- Main menu
+- Options to select:
+    - Guest list
+    - To do list
+    - Expense tracker
+    - Exit App 
 
 ## Guest List Tracker
 - Add guest
