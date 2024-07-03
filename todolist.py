@@ -28,7 +28,33 @@ def delete_tasks():
         else:
             print("Invalid task number.")
 
+def main():
 
+    while True:
+        print("\n===== Event Planner Application =====")
+        print("\n============ To Do List =============")
+        print("1.Add Task")
+        print("2.View Task")
+        print("3.Delete Task")
+        print("4.Back to Main Menu")
+        print("5.Quit")
+
+        choice = int(input("Enter the number of your choice:"))
+        if choice == 1:
+            add_task()
+        elif choice == 2:
+            view_tasks()
+        elif choice == 3:
+            delete_tasks()
+        elif choice == 4:
+            pass
+        elif choice == 5:
+            print("Thank you for using the Event Planner Application.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+main()
 
     
 
