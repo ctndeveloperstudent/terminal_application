@@ -1,4 +1,1 @@
-make app prettier
-add expense tracker
-complete the required documentation
-ensure app meets assignement rubric
+make the app prettier to use

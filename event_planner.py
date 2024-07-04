@@ -31,7 +31,8 @@ def guest_menu():
     load_guests()
 
     while True:
-        print("\n===== Guest List Menu =====")
+        print("\n===== Event Planner Application =====")
+        print("============ Guest List =============")
         print("1. Add New Guest")
         print("2. View Guest List")
         print("3. Delete Guest")
@@ -56,7 +57,8 @@ def todo_menu():
     load_tasks()
 
     while True:
-        print("\n===== To-Do List Menu =====")
+        print("\n===== Event Planner Application =====")
+        print("============ To-Do List =============")
         print("1. Add Task")
         print("2. View Task List")
         print("3. Delete Task")
@@ -81,7 +83,8 @@ def expenses_menu():
     load_expenses()
 
     while True:
-        print("\n===== Expense Tracker Menu =====")
+        print("\n===== Event Planner Application =====")
+        print("========== Expense Tracker ==========")
         print("1. Add Expense")
         print("2. View All Expenses")
         print("3. View Expenses by Category")

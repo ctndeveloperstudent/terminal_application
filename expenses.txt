@@ -1,3 +1,0 @@
-alcohol,drinks,400,500
-food,food,2000,2300
-decorations,venue,500,250

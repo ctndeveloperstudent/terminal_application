@@ -24,8 +24,8 @@ def add_expense():
     global expenses
     name = input("Enter the name of the expense: ")
     category = input("Enter the category of the expense: ")
-    budgeted_cost = input("Enter the budgeted cost: ")
-    actual_cost = input("Enter the actual cost: ")
+    budgeted_cost = input("Enter the budgeted cost: $")
+    actual_cost = input("Enter the actual cost: $")
     expenses.append([name, category, budgeted_cost, actual_cost])
     save_expenses()  
     print("Expense added successfully!")
@@ -39,7 +39,7 @@ def view_expenses():
     else:
         print("List of all expenses:")
         for i, expense in enumerate(expenses):
-            print(f"{i+1}. Name: {expense[0]}, Category: {expense[1]}, Budgeted Cost: {expense[2]}, Actual Cost: {expense[3]}")
+            print(f"{i+1}. Name: {expense[0]}, Category: {expense[1]}, Budgeted Cost: ${expense[2]}, Actual Cost: ${expense[3]}")
 
 # Function to view expenses by category
 def view_expenses_by_category():
@@ -61,7 +61,7 @@ def view_expenses_by_category():
                 print(f"Expenses in category '{category_name}':")
                 for expense in expenses:
                     if expense[1] == category_name:
-                        print(f"Name: {expense[0]}, Budgeted Cost: {expense[2]}, Actual Cost: {expense[3]}")
+                        print(f"Name: {expense[0]}, Budgeted Cost: ${expense[2]}, Actual Cost: ${expense[3]}")
             else:
                 print("Invalid category number. Please try again.")
         except ValueError:
