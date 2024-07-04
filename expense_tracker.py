@@ -1,3 +1,4 @@
+# Filename where expenses data will be stored
 expenses_file = "expenses.txt"
 
 # Function to load expenses from file to memory
@@ -25,8 +26,7 @@ def add_expense():
     category = input("Enter the category of the expense: ")
     budgeted_cost = input("Enter the budgeted cost: ")
     actual_cost = input("Enter the actual cost: ")
-    paid = input("Has the expense been paid? (yes/no): ").lower()
-    expenses.append([name, category, budgeted_cost, actual_cost, '✓' if paid == 'yes' else '✗'])
+    expenses.append([name, category, budgeted_cost, actual_cost])
     save_expenses()  # Save expenses immediately after adding
 
 # Function to view all expenses
@@ -38,13 +38,13 @@ def view_expenses():
     else:
         print("List of all expenses:")
         for i, expense in enumerate(expenses):
-            print(f"{i+1}. Name: {expense[0]}, Category: {expense[1]}, Budgeted Cost: {expense[2]}, Actual Cost: {expense[3]}, Paid: {expense[4]}")
+            print(f"{i+1}. Name: {expense[0]}, Category: {expense[1]}, Budgeted Cost: {expense[2]}, Actual Cost: {expense[3]}")
 
 # Function to view expenses by category
 def view_expenses_by_category():
     global expenses
     load_expenses()
-    categories = set([expense[1] for expense in expenses])  
+    categories = set([expense[1] for expense in expenses])
     if len(categories) == 0:
         print("No expenses recorded.")
     else:
@@ -60,7 +60,7 @@ def view_expenses_by_category():
                 print(f"Expenses in category '{category_name}':")
                 for expense in expenses:
                     if expense[1] == category_name:
-                        print(f"Name: {expense[0]}, Budgeted Cost: {expense[2]}, Actual Cost: {expense[3]}, Paid: {expense[4]}")
+                        print(f"Name: {expense[0]}, Budgeted Cost: {expense[2]}, Actual Cost: {expense[3]}")
             else:
                 print("Invalid category number. Please try again.")
         except ValueError:
@@ -75,7 +75,7 @@ def delete_expense():
         while True:
             print("Expenses:")
             for i, expense in enumerate(expenses):
-                print(f"{i+1}. Name: {expense[0]}, Category: {expense[1]}, Budgeted Cost: {expense[2]}, Actual Cost: {expense[3]}, Paid: {expense[4]}")
+                print(f"{i+1}. Name: {expense[0]}, Category: {expense[1]}, Budgeted Cost: {expense[2]}, Actual Cost: {expense[3]}")
             choice = input("Enter the expense number to delete: ")
 
             try:
@@ -131,7 +131,7 @@ def main():
             elif choice == 4:
                 delete_expense()
             elif choice == 5:
-                continue
+                break
             elif choice == 6:
                 save_changes_prompt()
                 print("Thank you for using the Event Planner Application.")
