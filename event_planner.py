@@ -1,6 +1,7 @@
 # Import Files
 from guestlist import load_guests, save_guests, add_guest, view_guests, delete_guest
 from todolist import load_tasks, save_tasks, add_task, view_tasks, delete_task
+from expense_tracker import load_expenses, save_expenses, add_expense, delete_expense
 
 # Main Menu Function
 def main_menu():
