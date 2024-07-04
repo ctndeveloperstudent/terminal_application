@@ -27,7 +27,8 @@ def add_expense():
     budgeted_cost = input("Enter the budgeted cost: ")
     actual_cost = input("Enter the actual cost: ")
     expenses.append([name, category, budgeted_cost, actual_cost])
-    save_expenses()  # Save expenses immediately after adding
+    save_expenses()  
+    print("Expense added successfully!")
 
 # Function to view all expenses
 def view_expenses():
@@ -118,7 +119,7 @@ def main():
         print("3. View Expenses by Category")
         print("4. Delete Expense")
         print("5. Back to Main Menu")
-        print("6. Quit")
+        
 
         try:
             choice = int(input("Enter the number of your choice: "))
@@ -131,10 +132,6 @@ def main():
             elif choice == 4:
                 delete_expense()
             elif choice == 5:
-                break
-            elif choice == 6:
-                save_changes_prompt()
-                print("Thank you for using the Event Planner Application.")
                 break
             else:
                 print("Invalid choice. Please try again.")

@@ -24,7 +24,7 @@ def add_guest():
     global guests
     guest = input("Enter a new guest: ")
     guests.append(guest)
-    save_guests()  # Save guests immediately after adding a new guest
+    save_guests() 
     print("Guest added successfully!")
 
 # View guest function

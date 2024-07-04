@@ -87,7 +87,6 @@ def expenses_menu():
         print("3. View Expenses by Category")
         print("4. Delete Expense")
         print("5. Back to Main Menu")
-        print("6. Quit")
 
         try:
             choice = int(input("Enter the number of your choice: "))
@@ -100,10 +99,6 @@ def expenses_menu():
             elif choice == 4:
                 delete_expense()
             elif choice == 5:
-                break
-            elif choice == 6:
-                save_expenses()
-                print("Thank you for using the Event Planner Application.")
                 break
             else:
                 print("Invalid choice. Please try again.")
