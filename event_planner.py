@@ -7,6 +7,7 @@ from expense_tracker import load_expenses, save_expenses, add_expense, delete_ex
 def main_menu():
     while True:
         print("\n===== Event Planner Application =====")
+        print("============= Main Menu =============")
         print("1. Guest List")
         print("2. To-Do List")
         print("3. Expense Tracker")

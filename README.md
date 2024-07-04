@@ -26,9 +26,13 @@
 
 ## Expense Tracker
 - Add expense
-    - Add category (guest, food, drink, venue, vendor, other)
-    - Add expected cost
-    - Add actual cost
-- Total expected cost
-- Total actual cost
+- Add category (eg: guest, food, drink, venue, vendor, other)
+- Add expected cost
+- Add actual cost
 - View expenses by category
+
+## Dependencies
+- Python 3.9
+- Pyfiglet
+- Colorama
+- Tabulate (for expense tracker table)
