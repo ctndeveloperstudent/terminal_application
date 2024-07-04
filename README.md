@@ -4,6 +4,25 @@
 
 Welcome to the Event Planner Application! This application helps you manage various aspects of event planning, including managing the guest lists, keeping track of our to-do lists, and event expense tracking.
 
+## Getting Started
+To run the Event Planner Application, follow these steps:
+
+1. Clone the repository
+    
+        git clone <https://github.com/ctndeveloperstudent/terminal_application>
+
+2. Navigate to the project directory
+
+        cd event-planner
+
+3. Run the setup script to install dependencies and set up the environment. This script will check for Python installation and install necessary dependencies:
+        
+        ./run.sh ()
+        
+4. Once setup is complete, you can run the application:
+
+        python event_planner.py
+
 ## Features
 
 ### 1. Guest List Management
@@ -43,25 +62,6 @@ Welcome to the Event Planner Application! This application helps you manage vari
 ### 8. Setup and Dependencies
 - Include setup instructions and dependencies in a run.sh or setup script
 - Notify users if Python is not installed and provide instructions or a link to download it
-
-## Getting Started
-To run the Event Planner Application, follow these steps:
-
-1. Clone the repository
-    
-        git clone <https://github.com/ctndeveloperstudent/terminal_application>
-
-2. Navigate to the project directory
-
-        cd event-planner
-
-3. Run the setup script to install dependencies and set up the environment. This script will check for Python installation and install necessary dependencies:
-        
-        ./run.sh ()
-        
-4. Once setup is complete, you can run the application:
-
-        python event_planner.py
 
 ## Dependencies
 - Python 3.9
