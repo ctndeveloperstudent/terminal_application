@@ -1,6 +1,5 @@
 # Ignore Visual Studio Code settings
 .vscode/
 
-# Ignore files created by virtual environments
+# Ignore virtual environment
 *env/
-
