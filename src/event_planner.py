@@ -1,7 +1,7 @@
 # Import Statements
-from src.guestlist import load_guests, save_guests, add_guest, view_guests, delete_guest
-from src.todolist import load_tasks, save_tasks, add_task, view_tasks, delete_task
-from src.expense_tracker import load_expenses, save_expenses, add_expense, delete_expense, view_expenses, view_expenses_by_category
+from guestlist import load_guests, save_guests, add_guest, view_guests, delete_guest
+from todolist import load_tasks, save_tasks, add_task, view_tasks, delete_task
+from expense_tracker import load_expenses, save_expenses, add_expense, delete_expense, view_expenses, view_expenses_by_category
 
 # Main Menu Function
 def main_menu():
