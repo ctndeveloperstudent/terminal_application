@@ -69,13 +69,13 @@ def view_expenses_by_category():
             else:
                 print(Fore.RED + "Invalid category number. Please try again." + Fore.RESET)
         except ValueError:
-            print(Fore.RED + "Please enter a valid number" + Fore.RESET)
+            print(Fore.RED + "Please enter a valid number." + Fore.RESET)
 
 # Function to delete an expense
 def delete_expense():
     global expenses
     if len(expenses) == 0:
-        print(Fore.GREEN + "No expenses to delete" + Style.RESET_ALL)
+        print(Fore.GREEN + "No expenses to delete." + Style.RESET_ALL)
     else:
         while True:
             print("Expenses:")
@@ -108,5 +108,5 @@ def save_changes_prompt():
         save_expenses()
         print(Fore.GREEN + "Changes saved successfully." + Style.RESET_ALL)
     else:
-        print(Fore.RED + "Changes not saved" + Fore.RESET)
+        print(Fore.RED + "Changes not saved." + Fore.RESET)
 

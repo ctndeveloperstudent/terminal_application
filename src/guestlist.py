@@ -79,4 +79,4 @@ def save_changes_prompt():
         save_guests()
         print(Fore.GREEN + "Changes saved successfully." + Style.RESET_ALL)
     else:
-        print(Fore.RED + "Changes not saved" + Fore.RESET)
+        print(Fore.RED + "Changes not saved." + Fore.RESET)

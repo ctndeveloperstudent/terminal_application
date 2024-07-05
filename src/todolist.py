@@ -36,7 +36,7 @@ def view_tasks():
     global tasks
     load_tasks()
     if len(tasks) == 0:
-        print(Fore.GREEN + "No tasks on the to-do list" + Style.RESET_ALL)
+        print(Fore.GREEN + "No tasks on the to-do list." + Style.RESET_ALL)
     else:
         print("List of tasks:")
         for i, task in enumerate(tasks):
@@ -46,7 +46,7 @@ def view_tasks():
 def delete_task():
     global tasks
     if len(tasks) == 0:
-        print(Fore.GREEN + "No tasks to delete" + Style.RESET_ALL)
+        print(Fore.GREEN + "No tasks to delete." + Style.RESET_ALL)
     else:
         while True:
             print('Tasks:')
@@ -79,4 +79,4 @@ def save_changes_prompt():
         save_tasks()
         print(Fore.GREEN + "Changes saved successfully." + Style.RESET_ALL)
     else:
-        print(Fore.RED + "Changes not saved" + Fore.RESET)
+        print(Fore.RED + "Changes not saved." + Fore.RESET)

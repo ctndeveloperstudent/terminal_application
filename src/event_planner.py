@@ -1,7 +1,7 @@
 # Import modules
 import shutil
 import pyfiglet
-from colorama import Fore, init
+from colorama import Fore, Style, init
 
 # Function to print centered colored ASCII art
 def print_centered_colored_ascii_art(text, font, color):
@@ -43,7 +43,7 @@ def main_menu():
         elif choice == '3':
             expenses_menu()
         elif choice == '4':
-            print("Thank you for using the Event Planner Application.")
+            print(Fore.GREEN + "Thank you for using the Event Planner Application." + Style.RESET_ALL)
             break
         else:
             print(Fore.RED + "Invalid choice. Please enter a valid number." + Fore.RESET)
