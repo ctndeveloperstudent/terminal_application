@@ -1,4 +1,5 @@
 # Import modules
+import shutil
 import pyfiglet
 from colorama import Fore, Style, init
 from tabulate import tabulate
