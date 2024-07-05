@@ -1,3 +1,7 @@
+# Import necessary modules
+from colorama import Fore, Style, init
+init()
+
 # Filename where guest data will be stored
 guests_file = "guests.txt"
 
@@ -9,7 +13,7 @@ def load_guests():
             guests = [line.strip() for line in file.readlines()]
     except FileNotFoundError:
         with open(guests_file, 'w') as file:
-            file.write("")  # Create an empty file if it doesn't exist
+            file.write("")  
         guests = []
 
 # Function to save guests to file
@@ -25,14 +29,14 @@ def add_guest():
     guest = input("Enter a new guest: ")
     guests.append(guest)
     save_guests() 
-    print("Guest added successfully!")
+    print(Fore.GREEN + "Guest added successfully." + Style.RESET_ALL)
 
 # View guest function
 def view_guests():
     global guests
     load_guests()
     if len(guests) == 0:
-        print("No guests on the guest list.")
+        print(Fore.GREEN + "No guests on the guests list." + Style.RESET_ALL)
     else:
         print("List of guests:")
         for i, guest in enumerate(guests):
@@ -42,7 +46,7 @@ def view_guests():
 def delete_guest():
     global guests
     if len(guests) == 0:
-        print("No guests to delete.")
+        print(Fore.GREEN + "No guests to delete." + Style.RESET_ALL)
     else:
         while True:
             print('Guests:')
@@ -54,13 +58,13 @@ def delete_guest():
                 choice = int(choice)
                 if 0 < choice <= len(guests):
                     del guests[choice-1]
-                    save_guests()  # Save guests immediately after deletion
-                    print("Guest deleted successfully.")
+                    save_guests()
+                    print(Fore.GREEN + "Guest deleted successfully" + Style.RESET_ALL)  
                     break
                 else:
-                    print("Invalid guest number. Please try again.")
+                    print(Fore.RED + "Invalid guest number. Please try again." + Fore.RESET)
             except ValueError:
-                print("Please enter a valid number.")
+                print(Fore.RED + "Invalid number. Please try again." + Fore.RESET)
 
             # Option to remain in delete or return to main menu
             back_choice = input("Do you want to go back to the main menu? (y/n): ").lower()
@@ -73,46 +77,6 @@ def save_changes_prompt():
     save_decision = input("There are unsaved changes. Would you like to save them? (y/n): ").lower()
     if save_decision == 'y':
         save_guests()
-        print("Changes saved successfully.")
+        print(Fore.GREEN + "Changes saved successfully." + Style.RESET_ALL)
     else:
-        print("Changes not saved.")
-
-# Main function to run the application
-def main():
-    global guests
-    load_guests()
-
-    while True:
-        print("\n===== Event Planner Application =====")
-        print("============ Guest List =============")
-        print("1. Add New Guest")
-        print("2. View Guest List")
-        print("3. Delete Guest")
-        print("4. Back to Main Menu")
-        print("5. Quit")
-
-        try:
-            choice = int(input("Enter the number of your choice: "))
-            if choice == 1:
-                add_guest()
-            elif choice == 2:
-                view_guests()
-            elif choice == 3:
-                delete_guest()
-            elif choice == 4:
-                continue
-            elif choice == 5:
-                save_changes_prompt()
-                print("Thank you for using the Event Planner Application.")
-                break
-            else:
-                print("Invalid choice. Please try again.")
-        except ValueError:
-            print("Please enter a valid number.")
-
-    # Save changes before exiting
-    save_guests()
-
-if __name__ == "__main__":
-    main()
-
+        print(Fore.RED + "Changes not saved" + Fore.RESET)

@@ -1,3 +1,7 @@
+# Import necessary modules
+from colorama import Fore, Style, init
+init()
+
 # Filename where to do list data will be stored
 tasks_file = "tasks.txt"
 
@@ -9,7 +13,7 @@ def load_tasks():
             tasks = [line.strip() for line in file.readlines()]
     except FileNotFoundError:
         with open(tasks_file, 'w') as file:
-            file.write("")  # Create an empty file if it doesn't exist
+            file.write("")  
         tasks = []
 
 # Function to save tasks to file
@@ -24,15 +28,15 @@ def add_task():
     global tasks
     task = input("Enter a new task: ")
     tasks.append(task)
-    save_tasks() #Save tasks to memory after adding
-    print("Task added successfully!")
+    save_tasks() 
+    print(Fore.GREEN + "Task added successfully." + Style.RESET_ALL)
 
 # View Task Function
 def view_tasks():
     global tasks
     load_tasks()
     if len(tasks) == 0:
-        print("No tasks on the to-do list.")
+        print(Fore.GREEN + "No tasks on the to-do list" + Style.RESET_ALL)
     else:
         print("List of tasks:")
         for i, task in enumerate(tasks):
@@ -42,7 +46,7 @@ def view_tasks():
 def delete_task():
     global tasks
     if len(tasks) == 0:
-        print("No tasks to delete.")
+        print(Fore.GREEN + "No tasks to delete" + Style.RESET_ALL)
     else:
         while True:
             print('Tasks:')
@@ -54,13 +58,13 @@ def delete_task():
                 choice =int(choice)
                 if 0 < choice <= len(tasks):
                     del tasks[choice-1]
-                    save_tasks() #save immedietly after deletion
-                    print("Task deleted successfully.")
+                    save_tasks()
+                    print(Fore.GREEN + "Task deleted successfully." + Style.RESET_ALL)
                     break
                 else:
-                    print("Invalid task number. Please try again.")
+                    print(Fore.RED + "Invalid task number. Please try again." + Fore.RESET)
             except ValueError:
-                print("Please enter a valid number.")
+                print(Fore.RED + "Invalid number. Please try again.")
             
             # Option to break out of the loop and go back to the main menu
             back_choice = input("Do you want to go back to the main menu? (y/n): ").lower()
@@ -73,45 +77,6 @@ def save_changes_prompt():
     save_decision = input("There are unsaved changes. Would you like to save them? (y/n): ").lower()
     if save_decision == 'y':
         save_tasks()
-        print("Changes saved successfully.")
+        print(Fore.GREEN + "Changes saved successfully." + Style.RESET_ALL)
     else:
-        print("Changes not saved.")
-
-#ain function to run the application
-def main():
-    global tasks
-    load_tasks()
-
-    while True:
-        print("\n===== Event Planner Application =====")
-        print("============ To-Do List =============")
-        print("1. Add New Task")
-        print("2. View Task List")
-        print("3. Delete Task")
-        print("4. Back to Main Memu")
-        print("5. Quit")
-
-        try:
-            choice = int(input("Enter the number of your choice: "))
-            if choice == 1:
-                add_task()
-            elif choice == 2:
-                view_tasks()
-            elif choice == 3:
-                delete_task()
-            elif choice ==4:
-                continue
-            elif choice == 5:
-                print("Thank you for using the Event Planner Application.")
-                break
-            else:
-                print("Invalid choice. Please try again.")
-        except ValueError:
-            print("Please enter a valid number.")
-
-    # Save changes before exiting
-    save_tasks()
-
-if __name__ == "__main__":
-    main()
-
+        print(Fore.RED + "Changes not saved" + Fore.RESET)

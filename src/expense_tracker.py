@@ -1,4 +1,8 @@
-# Filename where expenses data will be stored
+# Import necessary modules
+from colorama import Fore, Style, init
+init()
+
+# File storage name
 expenses_file = "expenses.txt"
 
 # Function to load expenses from file to memory
@@ -9,7 +13,7 @@ def load_expenses():
             expenses = [line.strip().split(',') for line in file.readlines()]
     except FileNotFoundError:
         with open(expenses_file, 'w') as file:
-            file.write("")  # Create an empty file if it doesn't exist
+            file.write("")  
         expenses = []
 
 # Function to save expenses to file
@@ -28,14 +32,14 @@ def add_expense():
     actual_cost = input("Enter the actual cost: $")
     expenses.append([name, category, budgeted_cost, actual_cost])
     save_expenses()  
-    print("Expense added successfully!")
+    print(Fore.GREEN + "Expense added successfully." + Style.RESET_ALL)
 
 # Function to view all expenses
 def view_expenses():
     global expenses
     load_expenses()
     if len(expenses) == 0:
-        print("No expenses recorded.")
+        print(Fore.GREEN + "No expenses recorded." + Style.RESET_ALL)
     else:
         print("List of all expenses:")
         for i, expense in enumerate(expenses):
@@ -47,7 +51,7 @@ def view_expenses_by_category():
     load_expenses()
     categories = set([expense[1] for expense in expenses])
     if len(categories) == 0:
-        print("No expenses recorded.")
+        print(Fore.GREEN + "No expenses recorded." + Style.RESET_ALL)
     else:
         print("Available categories:")
         for i, category in enumerate(categories):
@@ -63,15 +67,15 @@ def view_expenses_by_category():
                     if expense[1] == category_name:
                         print(f"Name: {expense[0]}, Budgeted Cost: ${expense[2]}, Actual Cost: ${expense[3]}")
             else:
-                print("Invalid category number. Please try again.")
+                print(Fore.RED + "Invalid category number. Please try again." + Fore.RESET)
         except ValueError:
-            print("Please enter a valid number.")
+            print(Fore.RED + "Please enter a valid number" + Fore.RESET)
 
 # Function to delete an expense
 def delete_expense():
     global expenses
     if len(expenses) == 0:
-        print("No expenses to delete.")
+        print(Fore.GREEN + "No expenses to delete" + Style.RESET_ALL)
     else:
         while True:
             print("Expenses:")
@@ -84,12 +88,12 @@ def delete_expense():
                 if 0 < choice <= len(expenses):
                     del expenses[choice-1]
                     save_expenses()  
-                    print("Expense deleted successfully.")
+                    print(Fore.GREEN + "Expense deleted successfully." + Style.RESET_ALL)
                     break
                 else:
-                    print("Invalid expense number. Please try again.")
+                    print(Fore.RED + "Invalid expense number. Please try again." + Fore.RESET)
             except ValueError:
-                print("Please enter a valid number.")
+                print(Fore.RED + "Invalid number. Please try again." + Fore.RESET)
 
             # Option to remain in delete or return to main menu
             back_choice = input("Do you want to go back to the main menu? (y/n): ").lower()
@@ -102,44 +106,7 @@ def save_changes_prompt():
     save_decision = input("There are unsaved changes. Would you like to save them? (y/n): ").lower()
     if save_decision == 'y':
         save_expenses()
-        print("Changes saved successfully.")
+        print(Fore.GREEN + "Changes saved successfully." + Style.RESET_ALL)
     else:
-        print("Changes not saved.")
+        print(Fore.RED + "Changes not saved" + Fore.RESET)
 
-# Main function to run the application
-def main():
-    global expenses
-    load_expenses()
-
-    while True:
-        print("\n===== Event Planner Application =====")
-        print("============ Expense Tracker =============")
-        print("1. Add Expense")
-        print("2. View All Expenses")
-        print("3. View Expenses by Category")
-        print("4. Delete Expense")
-        print("5. Back to Main Menu")
-        
-
-        try:
-            choice = int(input("Enter the number of your choice: "))
-            if choice == 1:
-                add_expense()
-            elif choice == 2:
-                view_expenses()
-            elif choice == 3:
-                view_expenses_by_category()
-            elif choice == 4:
-                delete_expense()
-            elif choice == 5:
-                break
-            else:
-                print("Invalid choice. Please try again.")
-        except ValueError:
-            print("Please enter a valid number.")
-
-    # Save changes before exiting
-    save_expenses()
-
-if __name__ == "__main__":
-    main()

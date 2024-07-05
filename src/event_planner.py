@@ -1,3 +1,25 @@
+# Import modules
+import shutil
+import pyfiglet
+from colorama import Fore, init
+
+# Function to print centered colored ASCII art
+def print_centered_colored_ascii_art(text, font, color):
+    init()
+    
+    figlet = pyfiglet.Figlet(font=font)
+    
+    ascii_art = figlet.renderText(text)
+    
+    terminal_size = shutil.get_terminal_size((80, 20))
+    width = terminal_size.columns
+    
+    for line in ascii_art.split('\n'):
+        padding = (width - len(line)) // 2
+        print(color + ' ' * padding + line + Fore.RESET)
+
+print_centered_colored_ascii_art("Event Planner App", "Rectangles", Fore.CYAN)
+
 # Import Statements
 from guestlist import load_guests, save_guests, add_guest, view_guests, delete_guest
 from todolist import load_tasks, save_tasks, add_task, view_tasks, delete_task
@@ -6,8 +28,7 @@ from expense_tracker import load_expenses, save_expenses, add_expense, delete_ex
 # Main Menu Function
 def main_menu():
     while True:
-        print("\n===== Event Planner Application =====")
-        print("============= Main Menu =============")
+        print("\n\n============= Main Menu =============")
         print("1. Guest List")
         print("2. To-Do List")
         print("3. Expense Tracker")
@@ -25,15 +46,14 @@ def main_menu():
             print("Thank you for using the Event Planner Application.")
             break
         else:
-            print("Invalid choice. Please enter a valid number.")
+            print(Fore.RED + "Invalid choice. Please enter a valid number." + Fore.RESET)
 
 # Guest List Menu Function
 def guest_menu():
     load_guests()
 
     while True:
-        print("\n===== Event Planner Application =====")
-        print("============ Guest List =============")
+        print("\n\n============ Guest List =============")
         print("1. Add New Guest")
         print("2. View Guest List")
         print("3. Delete Guest")
@@ -51,15 +71,14 @@ def guest_menu():
             save_guests()
             break
         else:
-            print("Invalid choice. Please enter a valid number.")
+            print(Fore.RED + "Invalid choice. Please enter a valid number." + Fore.RESET)
 
 # To-Do List Menu Function
 def todo_menu():
     load_tasks()
 
     while True:
-        print("\n===== Event Planner Application =====")
-        print("============ To-Do List =============")
+        print("\n\n============ To-Do List =============")
         print("1. Add Task")
         print("2. View Task List")
         print("3. Delete Task")
@@ -77,15 +96,14 @@ def todo_menu():
             save_tasks()
             break
         else:
-            print("Invalid choice. Please enter a valid number.")
+            print(Fore.RED + "Invalid choice. Please enter a valid number." + Fore.RESET)
 
 # Expense Tracker Menu Function
 def expenses_menu():
     load_expenses()
 
     while True:
-        print("\n===== Event Planner Application =====")
-        print("========== Expense Tracker ==========")
+        print("\n\n========== Expense Tracker ==========")
         print("1. Add Expense")
         print("2. View All Expenses")
         print("3. View Expenses by Category")
@@ -107,7 +125,7 @@ def expenses_menu():
             else:
                 print("Invalid choice. Please try again.")
         except ValueError:
-            print("Please enter a valid number.")
+            print(Fore.RED + "Invalid choice. Please enter a valid number." + Fore.RESET)
 
 # Entry Point of the Application
 if __name__ == "__main__":
