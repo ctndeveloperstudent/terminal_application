@@ -42,9 +42,10 @@ To run the Event Planner Application, follow these steps:
 - View all expenses
 - View expenses by category
 - Delete expenses
+- Save task list to file (expenses.txt)
 
 ### 4. User Interface Enhancements
-- Colorful and formatted output using libraries like Colorama, PyFiglet, or Tabulate
+- Colorful and formatted output using libraries like Colorama, PyFiglet, and Tabulate
 - User-friendly prompts and menus
 
 ### 5. Data Persistence
@@ -61,7 +62,7 @@ To run the Event Planner Application, follow these steps:
 
 ### 8. Setup and Dependencies
 - Include setup instructions and dependencies in a run.sh or setup script
-- Notify users if Python is not installed and provide instructions or a link to download it
+- Notify users if Python is not installed and provide instructions and a link to download it
 
 ## Dependencies
 - Python 3.9
