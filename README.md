@@ -67,7 +67,6 @@ To run the Event Planner Application, follow these steps:
 - Python 3.9
 - Pyfiglet
 - Colorama
-- Tabulate 
 
 ## Contributing
 Contributions are welcome! If you have suggestions, feature requests, or find any issues, please create a new issue or pull request.
