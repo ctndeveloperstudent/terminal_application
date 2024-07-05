@@ -1,5 +1,7 @@
 # Import necessary modules
 from colorama import Fore, Style, init
+from tabulate import tabulate
+
 init()
 
 # File storage name
@@ -41,9 +43,10 @@ def view_expenses():
     if len(expenses) == 0:
         print(Fore.GREEN + "No expenses recorded." + Style.RESET_ALL)
     else:
-        print("List of all expenses:")
-        for i, expense in enumerate(expenses):
-            print(f"{i+1}. Name: {expense[0]}, Category: {expense[1]}, Budgeted Cost: ${expense[2]}, Actual Cost: ${expense[3]}")
+        headers = ["Name", "Category", "Budgeted Cost $", "Actual Cost $"]
+        print(Fore.GREEN + "List of all expenses:" + Style.RESET_ALL)
+        print(tabulate(expenses, headers=headers, tablefmt="pretty"))
+
 
 # Function to view expenses by category
 def view_expenses_by_category():
@@ -53,7 +56,7 @@ def view_expenses_by_category():
     if len(categories) == 0:
         print(Fore.GREEN + "No expenses recorded." + Style.RESET_ALL)
     else:
-        print("Available categories:")
+        print(Fore.GREEN + "Available categories:" + Style.RESET_ALL)
         for i, category in enumerate(categories):
             print(f"{i+1}. {category}")
 
@@ -62,14 +65,15 @@ def view_expenses_by_category():
             chosen_category = int(chosen_category)
             if 0 < chosen_category <= len(categories):
                 category_name = list(categories)[chosen_category - 1]
-                print(f"Expenses in category '{category_name}':")
-                for expense in expenses:
-                    if expense[1] == category_name:
-                        print(f"Name: {expense[0]}, Budgeted Cost: ${expense[2]}, Actual Cost: ${expense[3]}")
+                filtered_expenses = [expense for expense in expenses if expense[1] == category_name]
+                headers = ["Name", "Category", "Budgeted Cost $", "Actual Cost $"]
+                print(Fore.GREEN + f"Expenses in category '{category_name}':" + Style.RESET_ALL)
+                print(tabulate(filtered_expenses, headers=headers, tablefmt="pretty"))
             else:
-                print(Fore.RED + "Invalid category number. Please try again." + Fore.RESET)
+                print(Fore.RED + "Invalid category number. Please try again." + Style.RESET_ALL)
         except ValueError:
-            print(Fore.RED + "Please enter a valid number." + Fore.RESET)
+            print(Fore.RED + "Please enter a valid number." + Style.RESET_ALL)
+
 
 # Function to delete an expense
 def delete_expense():
@@ -78,27 +82,27 @@ def delete_expense():
         print(Fore.GREEN + "No expenses to delete." + Style.RESET_ALL)
     else:
         while True:
-            print("Expenses:")
-            for i, expense in enumerate(expenses):
-                print(f"{i+1}. Name: {expense[0]}, Category: {expense[1]}, Budgeted Cost: {expense[2]}, Actual Cost: {expense[3]}")
-            choice = input("Enter the expense number to delete: ")
+            headers = ["#", "Name", "Category", "Budgeted Cost $", "Actual Cost $"]
+            numbered_expenses = [[i+1] + expense for i, expense in enumerate(expenses)]
+            print(Fore.GREEN + "List of all expenses:" + Style.RESET_ALL)
+            print(tabulate(numbered_expenses, headers=headers, tablefmt="pretty"))
+
+            choice = input("Enter the expense number to delete (or 'b' to go back): ")
+
+            if choice.lower() == 'b':
+                break
 
             try:
                 choice = int(choice)
                 if 0 < choice <= len(expenses):
                     del expenses[choice-1]
-                    save_expenses()  
+                    save_expenses()
                     print(Fore.GREEN + "Expense deleted successfully." + Style.RESET_ALL)
                     break
                 else:
-                    print(Fore.RED + "Invalid expense number. Please try again." + Fore.RESET)
+                    print(Fore.RED + "Invalid expense number. Please try again." + Style.RESET_ALL)
             except ValueError:
-                print(Fore.RED + "Invalid number. Please try again." + Fore.RESET)
-
-            # Option to remain in delete or return to main menu
-            back_choice = input("Do you want to go back to the main menu? (y/n): ").lower()
-            if back_choice == 'y':
-                break
+                print(Fore.RED + "Invalid number. Please try again." + Style.RESET_ALL)
 
 # Function to handle saving changes before exiting
 def save_changes_prompt():

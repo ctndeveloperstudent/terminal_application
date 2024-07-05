@@ -1,7 +1,7 @@
 # Import modules
-import shutil
 import pyfiglet
 from colorama import Fore, Style, init
+from tabulate import tabulate
 
 # Function to print centered colored ASCII art
 def print_centered_colored_ascii_art(text, font, color):
