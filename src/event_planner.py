@@ -24,7 +24,7 @@ print_centered_colored_ascii_art("Event Planner App", "Rectangles", Fore.CYAN)
 # Import Statements
 from guestlist import load_guests, save_guests, add_guest, view_guests, delete_guest
 from todolist import load_tasks, save_tasks, add_task, view_tasks, delete_task
-from expense_tracker import load_expenses, save_expenses, add_expense, delete_expense, view_expenses, view_expenses_by_category
+from expense_tracker import load_expenses, add_expense, delete_expense, view_expenses, view_expenses_by_category
 
 # Main Menu Function
 def main_menu():
@@ -72,7 +72,8 @@ def guest_menu():
             save_guests()
             break
         else:
-            print(Fore.RED + "Invalid choice. Please enter a valid number." + Fore.RESET)
+            print(Fore.RED + "Invalid choice. Please enter a valid \
+                  number." + Fore.RESET)
 
 # To-Do List Menu Function
 def todo_menu():
@@ -97,7 +98,8 @@ def todo_menu():
             save_tasks()
             break
         else:
-            print(Fore.RED + "Invalid choice. Please enter a valid number." + Fore.RESET)
+            print(Fore.RED + "Invalid choice. Please enter a valid \
+                  number." + Fore.RESET)
 
 # Expense Tracker Menu Function
 def expenses_menu():
@@ -126,7 +128,8 @@ def expenses_menu():
             else:
                 print("Invalid choice. Please try again.")
         except ValueError:
-            print(Fore.RED + "Invalid choice. Please enter a valid number." + Fore.RESET)
+            print(Fore.RED + "Invalid choice. Please enter a valid \
+                  number." + Fore.RESET)
 
 # Entry Point of the Application
 if __name__ == "__main__":

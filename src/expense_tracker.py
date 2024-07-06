@@ -12,7 +12,8 @@ def load_expenses():
     global expenses
     try:
         with open(expenses_file, 'r') as file:
-            expenses = [line.strip().split(',') for line in file.readlines()]
+            expenses = [line.strip().split(',') for line in \
+                        file.readlines()]
     except FileNotFoundError:
         with open(expenses_file, 'w') as file:
             file.write("")  
@@ -43,7 +44,8 @@ def view_expenses():
     if len(expenses) == 0:
         print(Fore.GREEN + "No expenses recorded." + Style.RESET_ALL)
     else:
-        headers = ["Name", "Category", "Budgeted Cost $", "Actual Cost $"]
+        headers = ["Name", "Category", "Budgeted Cost $", "Actual Cost \
+                   $"]
         print(Fore.GREEN + "List of all expenses:" + Style.RESET_ALL)
         print(tabulate(expenses, headers=headers, tablefmt="pretty"))
 
@@ -60,17 +62,23 @@ def view_expenses_by_category():
         for i, category in enumerate(categories):
             print(f"{i+1}. {category}")
 
-        chosen_category = input("Enter the number of the category to view expenses: ")
+        chosen_category = input("Enter the number of the category to \
+                                view expenses: ")
         try:
             chosen_category = int(chosen_category)
             if 0 < chosen_category <= len(categories):
                 category_name = list(categories)[chosen_category - 1]
-                filtered_expenses = [expense for expense in expenses if expense[1] == category_name]
-                headers = ["Name", "Category", "Budgeted Cost $", "Actual Cost $"]
-                print(Fore.GREEN + f"Expenses in category '{category_name}':" + Style.RESET_ALL)
-                print(tabulate(filtered_expenses, headers=headers, tablefmt="pretty"))
+                filtered_expenses = [expense for expense in expenses if \
+                                     expense[1] == category_name]
+                headers = ["Name", "Category", "Budgeted Cost $", "Actual \
+                           Cost $"]
+                print(Fore.GREEN + f"Expenses in category '{category_name}\
+                      ':" + Style.RESET_ALL)
+                print(tabulate(filtered_expenses, headers=headers, tablefmt=\
+                               "pretty"))
             else:
-                print(Fore.RED + "Invalid category number. Please try again." + Style.RESET_ALL)
+                print(Fore.RED + "Invalid category number. Please try again." \
+                      + Style.RESET_ALL)
         except ValueError:
             print(Fore.RED + "Please enter a valid number." + Style.RESET_ALL)
 
@@ -82,12 +90,16 @@ def delete_expense():
         print(Fore.GREEN + "No expenses to delete." + Style.RESET_ALL)
     else:
         while True:
-            headers = ["#", "Name", "Category", "Budgeted Cost $", "Actual Cost $"]
-            numbered_expenses = [[i+1] + expense for i, expense in enumerate(expenses)]
+            headers = ["#", "Name", "Category", "Budgeted Cost $", "Actual Cost \
+                       $"]
+            numbered_expenses = [[i+1] + expense for i, expense in enumerate\
+                                 (expenses)]
             print(Fore.GREEN + "List of all expenses:" + Style.RESET_ALL)
-            print(tabulate(numbered_expenses, headers=headers, tablefmt="pretty"))
+            print(tabulate(numbered_expenses, headers=headers, tablefmt=\
+                           "pretty"))
 
-            choice = input("Enter the expense number to delete (or 'b' to go back): ")
+            choice = input("Enter the expense number to delete (or 'b' to \
+                           go back): ")
 
             if choice.lower() == 'b':
                 break
@@ -97,17 +109,21 @@ def delete_expense():
                 if 0 < choice <= len(expenses):
                     del expenses[choice-1]
                     save_expenses()
-                    print(Fore.GREEN + "Expense deleted successfully." + Style.RESET_ALL)
+                    print(Fore.GREEN + "Expense deleted successfully." + \
+                          Style.RESET_ALL)
                     break
                 else:
-                    print(Fore.RED + "Invalid expense number. Please try again." + Style.RESET_ALL)
+                    print(Fore.RED + "Invalid expense number. Please try \
+                          again." + Style.RESET_ALL)
             except ValueError:
-                print(Fore.RED + "Invalid number. Please try again." + Style.RESET_ALL)
+                print(Fore.RED + "Invalid number. Please try again." + \
+                      Style.RESET_ALL)
 
 # Function to handle saving changes before exiting
 def save_changes_prompt():
     global expenses
-    save_decision = input("There are unsaved changes. Would you like to save them? (y/n): ").lower()
+    save_decision = input("There are unsaved changes. Would you like to \
+                          save them? (y/n): ").lower()
     if save_decision == 'y':
         save_expenses()
         print(Fore.GREEN + "Changes saved successfully." + Style.RESET_ALL)

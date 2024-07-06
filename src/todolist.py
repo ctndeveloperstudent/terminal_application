@@ -36,7 +36,8 @@ def view_tasks():
     global tasks
     load_tasks()
     if len(tasks) == 0:
-        print(Fore.GREEN + "No tasks on the to-do list." + Style.RESET_ALL)
+        print(Fore.GREEN + "No tasks on the to-do list." \
+              + Style.RESET_ALL)
     else:
         print("List of tasks:")
         for i, task in enumerate(tasks):
@@ -59,24 +60,30 @@ def delete_task():
                 if 0 < choice <= len(tasks):
                     del tasks[choice-1]
                     save_tasks()
-                    print(Fore.GREEN + "Task deleted successfully." + Style.RESET_ALL)
+                    print(Fore.GREEN + "Task deleted successfully." \
+                          + Style.RESET_ALL)
                     break
                 else:
-                    print(Fore.RED + "Invalid task number. Please try again." + Fore.RESET)
+                    print(Fore.RED + "Invalid task number. Please try \
+                          again." + Fore.RESET)
             except ValueError:
                 print(Fore.RED + "Invalid number. Please try again.")
             
-            # Option to break out of the loop and go back to the main menu
-            back_choice = input("Do you want to go back to the main menu? (y/n): ").lower()
+            # Option to break out of the loop and go back to the main \
+            # menu
+            back_choice = input("Do you want to go back to the main \
+                                menu? (y/n): ").lower()
             if back_choice == 'y':
                 break
 
 #Function to save before quitting app
 def save_changes_prompt():
     global tasks
-    save_decision = input("There are unsaved changes. Would you like to save them? (y/n): ").lower()
+    save_decision = input("There are unsaved changes. Would you like \
+                          to save them? (y/n): ").lower()
     if save_decision == 'y':
         save_tasks()
-        print(Fore.GREEN + "Changes saved successfully." + Style.RESET_ALL)
+        print(Fore.GREEN + "Changes saved successfully." + \
+              Style.RESET_ALL)
     else:
         print(Fore.RED + "Changes not saved." + Fore.RESET)
