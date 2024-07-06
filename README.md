@@ -142,9 +142,9 @@ Contributions are welcome! If you have suggestions, feature requests, or find an
 
 ## Inspiration
 
-This project was inspired by a step-by-step tutorial on creating a simple command-line to-do list app using Python. The tutorial guided the creation of functionalities for adding, removing, and viewing tasks, which provided valuable insights into Python programming fundamentals and practical application development.
+This project was inspired by video on creating a simple command-line list app using Python. The tutorial guided the creation of functionalities for adding, removing, and viewing tasks, which provided valuable insights into Python programming fundamentals and practical application development.
 
 - YouTube Tutorial: [Creating a Simple Command Line To-Do List App with Python](https://www.youtube.com/watch?v=1XDZ9Dy6qo4)
-  Description: This step-by-step tutorial teaches how to create a CLI to-do list app in Python, enabling task management through add, remove, and view operations.
+  
 
 
