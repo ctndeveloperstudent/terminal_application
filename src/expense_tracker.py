@@ -62,8 +62,7 @@ def view_expenses_by_category():
         for i, category in enumerate(categories):
             print(f"{i+1}. {category}")
 
-        chosen_category = input("Enter the number of the category to \
-                                view expenses: ")
+        chosen_category = input("Enter the number of the category to view expenses: ")
         try:
             chosen_category = int(chosen_category)
             if 0 < chosen_category <= len(categories):
