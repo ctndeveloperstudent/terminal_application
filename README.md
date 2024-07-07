@@ -37,7 +37,7 @@ To run the Event Planner Application, follow these steps:
 
 2. Navigate to the project directory
 
-        cd event-planner
+        cd src
 
 3. Install dependencies using pip and the requirements.txt file. This command will install all the necessary dependencies listed in the 'requirements.txt' file.
 
