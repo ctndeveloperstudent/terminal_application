@@ -12,9 +12,15 @@ The Event Planner Application is designed to streamline every aspect of event ma
 
 Guest List Management: Easily create, update, and manage guest lists for your events. Keep track of all your guests and invitations all in one place.
 
+![Guest List](docs/homepage_menu.jpg)
+
 To-Do Lists: Stay on top of your event planning tasks with customizable to-do lists. Assign tasks and monitor progress to ensure nothing falls through the cracks.
 
+![To-Do Lists](docs/to_do_list_menu.jpg)
+
 Expense Tracking: Track event expenses effortlessly. Log expenditures, categorize costs, and generate expense reports to manage your budget effectively.
+
+![To-Do Lists](docs/to_do_list_menu.jpg)
 
 #### Why Choose This Application:
 
@@ -53,11 +59,15 @@ To run the Event Planner Application, follow these steps:
 - Delete guests
 - Save guest list to file (guests.txt)
 
+![Guest List Management](docs/guest_list_menu.jpg)
+
 ### 2. To-Do List Management
 - Add tasks
 - View task list
 - Delete tasks
 - Save task list to file (tasks.txt)
+
+![To Do List Management](docs/to_do_list_menu.jpg)
 
 ### 3. Expense Tracker
 - Add expenses (name, category, budgeted cost, actual cost)
@@ -66,25 +76,44 @@ To run the Event Planner Application, follow these steps:
 - Delete expenses
 - Save task list to file (expenses.txt)
 
-### 4. User Interface Enhancements
+![Expense Tracker Management](docs/expense_tracker_menu.jpg)
+
+### 4. Main Menu Navigation
+- Easy navigation between guest list, to-do list, and expense tracker
+- Option to quit the application
+
+![Main Menu Navigation](docs/quit_app.jpg)
+
+### 5. User Interface Enhancements
 - Colorful and formatted output using libraries like Colorama, PyFiglet, and Tabulate
 - User-friendly prompts and menus
 
-### 5. Data Persistence
+Colorama:
+![Colorama](docs/quit_app.jpg)
+
+Tabulate:
+![Tabulate Table](docs/tabulate_table.jpg)
+
+Pyfiglet:
+![ASCII art](docs/ascii_banner.jpg)
+
+### 6. Data Persistence
 - Automatic saving and loading of data from files
 - Ensure changes are saved before exiting the application
 
-### 6. Error Handling and Validation
+### 7. Error Handling and Validation
 - Graceful handling of invalid inputs
 - Validation of user inputs to prevent errors
 
-### 7. Main Menu Navigation
-- Easy navigation between guest list, to-do list, and expense tracker
-- Option to quit the application
+Error Handling:
+![Error Handling](docs/error_handling.jpg)
 
 ### 8. Setup and Dependencies
 - Include setup instructions and dependencies in a run.sh or setup script
 - Notify users if Python is not installed and provide instructions and a link to download it
+
+Run.sh File:
+![Run.sh File](docs/run_sh_file.jpg)
 
 ## Dependencies
 1. Python 3.9: required to run the Python scripts for this application. 
@@ -137,14 +166,187 @@ This project follows the Python Enhancement Proposal 8 (PEP 8) style guide for P
 For more details, please refer to [PEP 8](https://www.python.org/dev/peps/pep-0008/).
 
 
-## Contributing
-Contributions are welcome! If you have suggestions, feature requests, or find any issues, please create a new issue or pull request.
+## Event Planner Project Implementation Plan
 
-## Inspiration
+**Link to Board:** [Trello Board](https://trello.com/b/XyRwcqoX/event-planner-app)
+
+### Task Tracking and Feature Implementation
+
+### 1. Guest List Management
+
+#### Implementation Outline:
+- Add New Guest
+- View Guest List
+- Delete Guest
+- Return to Main Menu
+- Error Handling for Invalid Inputs
+
+#### Checklist:
+1. **Set up guest list data structure**
+   - Deadline: Monday
+2. **Implement 'Add New Guest' feature**
+   - Deadline: Monday
+3. **Implement 'View Guest List' feature**
+   - Deadline: Monday
+4. **Implement 'Delete Guest' feature**
+   - Deadline: Monday
+5. **Add error handling for invalid inputs**
+   - Deadline: Monday
+
+### 2. To-Do List Management
+
+#### Implementation Outline:
+- Add New Task
+- View Task List
+- Delete Task
+- Return to Main Menu
+- Error Handling for Invalid Inputs
+
+#### Checklist:
+1. **Set up to-do list data structure**
+   - Deadline: Wednesday
+2. **Implement 'Add Task' feature**
+   - Deadline: Wednesday
+3. **Implement 'View Task List' feature**
+   - Deadline: Wednesday
+4. **Implement 'Delete Task' feature**
+   - Deadline: Wednesday
+5. **Add error handling for invalid inputs**
+   - Deadline: Wednesday
+
+### 3. Expense Tracker
+
+#### Implementation Outline:
+- Add Expense
+- View All Expenses
+- View Expenses by Category
+- Delete Expense
+- Return to Main Menu
+- Error Handling for Invalid Inputs
+
+#### Checklist:
+1. **Set up expense tracker data structure**
+   - Deadline: Thursday
+2. **Implement 'Add Expense' feature**
+   - Deadline: Thursday
+3. **Implement 'View All Expenses' feature**
+   - Deadline: Thursday
+4. **Implement 'View Expenses by Category' feature**
+   - Deadline: Thursday
+5. **Implement 'Delete Expense' feature**
+   - Deadline: Thursday
+6. **Add error handling for invalid inputs**
+   - Deadline: Thurday
+
+### 4. Homepage Menu
+
+#### Implementation Outline:
+- Add Guest list
+- Add To do list
+- Add Expense Tracker
+- Add Quit app
+- Add Welcome app banner using ascii and colorama
+- Error Handling for invalid Inputs
+
+#### Checklist:
+1. **Implement 'Guest list' feature**
+   - Deadline: Friday
+2. **Implement 'To do list' feature**
+   - Deadline: Friday
+3. **Implement 'Expense Tracker' feature**
+   - Deadline: Friday
+4. **Implement 'Quit' feature**
+   - Deadline: Friday
+5. **Add 'Event Planner App' banner**
+   - Deadline: Friday
+5. **Add error handling for invalid inputs**
+   - Deadline: Friday
+ 
+### 5. Writing README and Ensuring Code and Documentation Requirements
+
+#### Implementation Outline:
+- Write comprehensive README file
+- Ensure code meets style guide and convention requirements
+- Validate code against the rubric requirements
+- Perform final review and testing
+
+#### Checklist:
+1. **Write README file**
+   - Deadline: Saturday
+2. **Ensure code style and convention adherence**
+   - Deadline: Saturday
+3. **Validate code against rubric requirements**
+   - Deadline: Saturday
+4. **Perform final review**
+   - Deadline: Saturday
+5. **Conduct testing and debugging**
+   - Deadline: Saturday
+
+### 6. Submit Assignment
+
+#### Check List
+1. **Check submission criteria**
+   - Deadline: Sunday
+2. **Finalise Readme file**
+   - Deadline: Sunday
+3. **Rename folder and zip folder**
+   - Deadline: Sunday
+4. **Submit Assignment**
+   - Deadline: Sunday
+
+### Prioritization and Deadlines
+
+Features have been prioritized based on core functionality and documentation requirements:
+1. Guest List Management (Day 1)
+2. To-Do List Management (Day 3)
+3. Expense Tracker (Day 4)
+4. Homepage (Day 5)
+5. Writing README and Ensuring Code and Documentation Requirements (Day 6-7)
+6. Submit Project (Day 7)
+
+
+### Time Indicators
+
+- **Total Duration:** 7 days
+- **Feature Implementation:** 5 days
+- **Documentation and Review:** 2 days
+
+### Project Management Tracking
+
+Screenshots of Trello Board:
+
+Overview:
+![Trello Board Overview](docs/trello_board_overview.jpg)
+
+Guest list Tasks:
+![Guest List Tasks](docs/guest_list_tasks.jpg)
+
+To Do List Tasks:
+![To-Do List Tasks](docs/todo_list_tasks.jpg)
+
+Expense Tracker Tasks:
+![Expense Tracker Tasks](docs/expense_tracker_tasks.jpg)
+
+Homepage Tasks:
+![Homepage Tasks](docs/homepage_tasks.jpg)
+
+Documentation Tasks:
+![Documentation Tasks](docs/documentation_tasks.jpg)
+
+Submission Tasks:
+![Submission Tasks](docs/submission_tasks.jpg)
+
+### Project Management Platform Reference
+
+All tasks and deadlines are tracked and managed via Trello. The board contains lists for each feature with detailed tasks and deadlines. Each task includes checklists, descriptions, and due dates to ensure timely and organized development.
+
+**Trello Board Link:** [Trello Board](https://trello.com/b/XyRwcqoX/event-planner-app)
+
+## References
 
 This project was inspired by video on creating a simple command-line list app using Python. The tutorial guided the creation of functionalities for adding, removing, and viewing tasks, which provided valuable insights into Python programming fundamentals and practical application development.
 
-- YouTube Tutorial: [Creating a Simple Command Line To-Do List App with Python](https://www.youtube.com/watch?v=1XDZ9Dy6qo4)
-  
+- YouTube: [Creating a Simple Command Line To-Do List App with Python](https://www.youtube.com/watch?v=1XDZ9Dy6qo4)
+
 
 
